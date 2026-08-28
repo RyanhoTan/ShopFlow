@@ -40,3 +40,21 @@ export function ProductCard({ product }: ProductCardProps) {
     </Link>
   )
 }
+
+export function ProductCardSkeleton() {
+  return (
+    <article className="overflow-hidden rounded-[20px] bg-surface">
+      <div className="skeleton h-50 w-full" />
+
+      <div className="flex flex-col gap-2 p-5">
+        <div className="skeleton h-4 w-20 rounded-full" />
+        <div className="skeleton h-5 w-3/4 rounded-full" />
+
+        <div className="flex items-center justify-between">
+          <div className="skeleton h-6 w-16 rounded-full" />
+          <div className="skeleton h-4 w-12 rounded-full" />
+        </div>
+      </div>
+    </article>
+  )
+}
