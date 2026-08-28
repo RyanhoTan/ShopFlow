@@ -69,3 +69,68 @@ export function ProductInfoPanel({ product }: ProductInfoPanelProps) {
     </section>
   )
 }
+
+function ReviewCardSkeleton() {
+  return (
+    <article className="w-full min-w-0 rounded-[14px] bg-input px-4 py-3.5">
+      <div className="mb-1.5 flex items-start justify-between gap-3">
+        <div className="skeleton h-4 w-28 rounded-full" />
+        <div className="skeleton h-3.5 w-20 rounded-full" />
+      </div>
+      <div className="flex flex-col gap-2">
+        <div className="skeleton h-3.5 w-full rounded-full" />
+        <div className="skeleton h-3.5 w-4/5 rounded-full" />
+      </div>
+    </article>
+  )
+}
+
+export function ProductInfoPanelSkeleton() {
+  return (
+    <section
+      className="flex w-full min-w-0 max-w-166 flex-col gap-5 rounded-[20px] bg-surface p-9"
+      aria-hidden="true"
+    >
+      <div className="skeleton h-4 w-24 rounded-full" />
+      <div className="skeleton h-10 w-full rounded-[14px]" />
+      {/* <div className="skeleton h-10 w-4/5 rounded-[14px]" /> */}
+
+      <div className="flex flex-wrap items-center gap-4">
+        <div className="skeleton h-5 w-16 rounded-full" />
+        <div className="skeleton h-5 w-24 rounded-full" />
+        <div className="skeleton ml-auto h-5 w-28 rounded-full" />
+      </div>
+
+      <div className="flex flex-wrap items-end gap-3">
+        <div className="skeleton h-9 w-28 rounded-full" />
+        <div className="skeleton h-6 w-20 rounded-full" />
+        <div className="skeleton h-5 w-12 rounded-full" />
+      </div>
+
+      <hr className="border-border" />
+
+      <div className="flex flex-col gap-2">
+        <div className="skeleton h-5 w-28 rounded-full" />
+        <div className="flex flex-col gap-2">
+          <div className="skeleton h-4 w-full rounded-full" />
+          <div className="skeleton h-4 w-full rounded-full" />
+          <div className="skeleton h-4 w-5/6 rounded-full" />
+        </div>
+      </div>
+
+      <div className="flex flex-wrap gap-3">
+        <div className="skeleton h-13 min-w-55 rounded-[14px]" />
+        <div className="skeleton h-13 min-w-40 rounded-[14px]" />
+      </div>
+
+      <div className="flex flex-col gap-3">
+        <div className="skeleton h-5 w-20 rounded-full" />
+        <div className="flex min-w-0 flex-col gap-3">
+          {Array.from({ length: 2 }, (_, index) => (
+            <ReviewCardSkeleton key={index} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

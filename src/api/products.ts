@@ -17,6 +17,7 @@ type DummyProduct = {
   rating: number
   stock: number
   thumbnail: string
+  images: string[]
   reviews?: DummyReview[]
 }
 
@@ -58,6 +59,7 @@ function mapProduct(product: DummyProduct): Product {
 function mapProductDetail(product: DummyProduct): ProductDetail {
   return {
     ...mapProduct(product),
+    images: product.images.length > 0 ? product.images : [product.thumbnail],
     originalPrice: formatOriginalPrice(product.price, product.discountPercentage),
     discount: formatDiscount(product.discountPercentage),
     reviewCount: product.reviews?.length ?? 0,

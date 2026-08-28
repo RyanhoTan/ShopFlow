@@ -14,6 +14,7 @@ export type ProductReview = {
 }
 
 export type ProductDetail = Product & {
+  images: string[]
   originalPrice: string
   discount: string
   reviewCount: number

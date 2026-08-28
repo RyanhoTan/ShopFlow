@@ -2,8 +2,8 @@ import { useQuery } from '@tanstack/react-query'
 import { Link, useParams } from 'react-router-dom'
 import { ApiError } from '../../api/client'
 import { getProduct } from '../../api/products'
-import { ProductGallery } from '../../components/product/ProductGallery'
-import { ProductInfoPanel } from '../../components/product/ProductInfoPanel'
+import { ProductGallery, ProductGallerySkeleton } from '../../components/product/ProductGallery'
+import { ProductInfoPanel, ProductInfoPanelSkeleton } from '../../components/product/ProductInfoPanel'
 
 export function ProductDetailPage() {
   const { id } = useParams()
@@ -28,8 +28,15 @@ export function ProductDetailPage() {
 
   if (isLoading) {
     return (
-      <main className="flex min-h-full flex-1 items-center justify-center bg-page p-12 text-[15px] text-text-secondary">
-        Loading product...
+      <main
+        className="flex min-h-full flex-1 justify-center overflow-y-auto bg-page px-12 py-8"
+        aria-busy="true"
+        aria-label="Loading product"
+      >
+        <div className="flex w-full min-w-0 max-w-336 flex-col gap-10 xl:flex-row xl:items-start">
+          <ProductGallerySkeleton />
+          <ProductInfoPanelSkeleton />
+        </div>
       </main>
     )
   }
@@ -56,7 +63,7 @@ export function ProductDetailPage() {
   return (
     <main className="flex min-h-full flex-1 justify-center overflow-y-auto bg-page px-12 py-8">
       <div className="flex w-full min-w-0 max-w-336 flex-col gap-10 xl:flex-row xl:items-start">
-        <ProductGallery />
+        <ProductGallery key={product.id} images={product.images} alt={product.title} />
         <ProductInfoPanel product={product} />
       </div>
     </main>
