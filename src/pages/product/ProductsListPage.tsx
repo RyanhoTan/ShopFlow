@@ -23,7 +23,7 @@ export function ProductsListPage() {
   }
 
   return (
-    <div className="flex min-h-full flex-1 flex-col gap-6 px-8 py-8 pr-10">
+    <div className="flex min-h-full shrink-0 flex-col gap-6 px-8 py-8 pr-10">
       <section className="rounded-[20px] bg-surface px-8 py-7">
         <h1 className="text-[34px] font-bold leading-[1.05] text-text-primary">
           Discover Products

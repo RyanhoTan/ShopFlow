@@ -29,13 +29,15 @@ export function ProductDetailPage() {
   if (isLoading) {
     return (
       <main
-        className="flex min-h-full flex-1 justify-center overflow-y-auto bg-page px-12 py-8"
+        className="min-h-0 flex-1 overflow-y-auto bg-page"
         aria-busy="true"
         aria-label="Loading product"
       >
-        <div className="flex w-full min-w-0 max-w-336 flex-col gap-10 xl:flex-row xl:items-start">
-          <ProductGallerySkeleton />
-          <ProductInfoPanelSkeleton />
+        <div className="flex min-h-full w-full shrink-0 justify-center px-12 py-8">
+          <div className="flex w-full min-w-0 max-w-336 flex-col gap-10 xl:flex-row xl:items-start">
+            <ProductGallerySkeleton />
+            <ProductInfoPanelSkeleton />
+          </div>
         </div>
       </main>
     )
@@ -61,10 +63,12 @@ export function ProductDetailPage() {
   }
 
   return (
-    <main className="flex min-h-full flex-1 justify-center overflow-y-auto bg-page px-12 py-8">
-      <div className="flex w-full min-w-0 max-w-336 flex-col gap-10 xl:flex-row xl:items-start">
-        <ProductGallery key={product.id} images={product.images} alt={product.title} />
-        <ProductInfoPanel product={product} />
+    <main className="min-h-0 flex-1 overflow-y-auto bg-page">
+      <div className="flex min-h-full w-full shrink-0 justify-center px-12 py-8">
+        <div className="flex w-full min-w-0 max-w-336 flex-col gap-10 xl:flex-row xl:items-start">
+          <ProductGallery key={product.id} images={product.images} alt={product.title} />
+          <ProductInfoPanel product={product} />
+        </div>
       </div>
     </main>
   )
