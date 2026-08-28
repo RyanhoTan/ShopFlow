@@ -71,11 +71,25 @@ function mapProductDetail(product: DummyProduct): ProductDetail {
   }
 }
 
-export function getProducts(): Promise<ProductsResult> {
-  return apiClient<ProductsResponse>('/products?limit=100').then((data) => ({
+function mapProductsResponse(data: ProductsResponse): ProductsResult {
+  return {
     products: data.products.map(mapProduct),
     total: data.total,
-  }))
+  }
+}
+
+type GetProductsOptions = {
+  category?: string
+}
+
+export function getProducts({ category = 'all' }: GetProductsOptions = {}): Promise<ProductsResult> {
+  const query = 'sortBy=title&order=asc&limit=100'
+  const path =
+    category === 'all'
+      ? `/products?${query}`
+      : `/products/category/${category}?${query}`
+
+  return apiClient<ProductsResponse>(path).then(mapProductsResponse)
 }
 
 export function getProduct(id: number): Promise<ProductDetail> {

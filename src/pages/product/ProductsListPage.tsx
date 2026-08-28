@@ -1,11 +1,15 @@
 import { useQuery } from '@tanstack/react-query'
+import { useSearchParams } from 'react-router-dom'
 import { getProducts } from '../../api/products'
 import { ProductCard } from '../../components/product/ProductCard'
 
 export function ProductsListPage() {
+  const [searchParams] = useSearchParams()
+  const category = searchParams.get('category') ?? 'all'
+
   const { data, isLoading, error } = useQuery({
-    queryKey: ['products'],
-    queryFn: getProducts,
+    queryKey: ['products', category],
+    queryFn: () => getProducts({ category }),
   })
 
   if (isLoading) {
