@@ -1,5 +1,5 @@
-import { ProductCard } from '../components/product/ProductCard'
-import { filterChips, products } from '../data/mockProducts'
+import { ProductCard } from '../../components/product/ProductCard'
+import { filterChips, products } from '../../data/mockProducts'
 
 export function ProductsListPage() {
   return (

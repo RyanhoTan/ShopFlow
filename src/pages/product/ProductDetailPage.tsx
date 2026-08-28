@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
-import { ProductGallery } from '../components/product/ProductGallery'
-import { ProductInfoPanel } from '../components/product/ProductInfoPanel'
-import { getProductDetail } from '../data/mockProductDetails'
+import { ProductGallery } from '../../components/product/ProductGallery'
+import { ProductInfoPanel } from '../../components/product/ProductInfoPanel'
+import { getProductDetail } from '../../data/mockProductDetails'
 
 export function ProductDetailPage() {
   const { id } = useParams()
