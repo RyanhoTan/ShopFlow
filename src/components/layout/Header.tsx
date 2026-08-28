@@ -5,14 +5,8 @@ export function Header() {
   return (
     <header className="flex h-18 shrink-0 items-center justify-between border-b border-border bg-surface px-10 py-3">
       <div className="flex items-center gap-2.5">
-        <img
-          src={reactLogo}
-          alt="ShopFlow"
-          className="size-9 shrink-0 rounded-[10px]"
-        />
-        <span className="text-[22px] font-bold leading-[1.45] text-text-primary">
-          ShopFlow
-        </span>
+        <img src={reactLogo} alt="ShopFlow" className="size-9 shrink-0 rounded-[10px]" />
+        <span className="text-[22px] font-bold leading-[1.45] text-text-primary">ShopFlow</span>
       </div>
 
       <label className="flex h-11 w-130 max-w-full items-center gap-2.5 rounded-[14px] bg-input px-4">

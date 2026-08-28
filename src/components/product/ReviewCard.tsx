@@ -30,9 +30,7 @@ export function ReviewCard({ review }: ReviewCardProps) {
         </p>
         <StarRating stars={review.stars} />
       </div>
-      <p className="text-[14px] leading-[1.45] text-text-secondary">
-        {review.comment}
-      </p>
+      <p className="text-[14px] leading-[1.45] text-text-secondary">{review.comment}</p>
     </article>
   )
 }

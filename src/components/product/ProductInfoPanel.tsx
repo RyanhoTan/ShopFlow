@@ -13,9 +13,7 @@ export function ProductInfoPanel({ product }: ProductInfoPanelProps) {
         {product.category}
       </p>
 
-      <h1 className="text-[40px] font-bold leading-[1.05] text-text-primary">
-        {product.title}
-      </h1>
+      <h1 className="text-[40px] font-bold leading-[1.05] text-text-primary">{product.title}</h1>
 
       <div className="flex flex-wrap items-center gap-4">
         <p className="flex items-center gap-1.5 text-[16px] font-semibold leading-[1.45] text-text-primary">
@@ -31,26 +29,18 @@ export function ProductInfoPanel({ product }: ProductInfoPanelProps) {
       </div>
 
       <div className="flex flex-wrap items-end gap-3">
-        <p className="text-[34px] font-bold leading-none text-text-primary">
-          {product.price}
-        </p>
+        <p className="text-[34px] font-bold leading-none text-text-primary">{product.price}</p>
         <p className="text-[18px] font-medium leading-[1.45] text-text-secondary line-through">
           {product.originalPrice}
         </p>
-        <p className="text-[14px] font-semibold leading-[1.45] text-primary">
-          {product.discount}
-        </p>
+        <p className="text-[14px] font-semibold leading-[1.45] text-primary">{product.discount}</p>
       </div>
 
       <hr className="border-border" />
 
       <div className="flex flex-col gap-2">
-        <h2 className="text-[18px] font-semibold leading-[1.45] text-text-primary">
-          Description
-        </h2>
-        <p className="text-[15px] leading-[1.45] text-text-secondary">
-          {product.description}
-        </p>
+        <h2 className="text-[18px] font-semibold leading-[1.45] text-text-primary">Description</h2>
+        <p className="text-[15px] leading-[1.45] text-text-secondary">{product.description}</p>
       </div>
 
       <div className="flex flex-wrap gap-3">
@@ -69,9 +59,7 @@ export function ProductInfoPanel({ product }: ProductInfoPanelProps) {
       </div>
 
       <div className="flex flex-col gap-3">
-        <h2 className="text-[18px] font-semibold leading-[1.45] text-text-primary">
-          Reviews
-        </h2>
+        <h2 className="text-[18px] font-semibold leading-[1.45] text-text-primary">Reviews</h2>
         <div className="flex flex-col gap-3">
           {product.reviews.map((review) => (
             <ReviewCard key={review.author} review={review} />

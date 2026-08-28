@@ -25,9 +25,7 @@ export function ProductGallery() {
               onClick={() => setSelectedIndex(index)}
               className={[
                 'h-24 rounded-[14px] transition-colors',
-                isSelected
-                  ? 'border-2 border-primary bg-active'
-                  : 'bg-image hover:bg-border',
+                isSelected ? 'border-2 border-primary bg-active' : 'bg-image hover:bg-border',
               ].join(' ')}
             />
           )
