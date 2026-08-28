@@ -14,7 +14,7 @@ export function ProductsListPage() {
 
   if (isLoading) {
     return (
-      <div className="flex flex-1 items-center justify-center p-12 text-[15px] text-text-secondary">
+      <div className="flex min-h-full flex-1 items-center justify-center p-12 text-[15px] text-text-secondary">
         Loading products...
       </div>
     )
@@ -22,14 +22,14 @@ export function ProductsListPage() {
 
   if (error || !data) {
     return (
-      <div className="flex flex-1 items-center justify-center p-12 text-[15px] text-text-secondary">
+      <div className="flex min-h-full flex-1 items-center justify-center p-12 text-[15px] text-text-secondary">
         Failed to load products.
       </div>
     )
   }
 
   return (
-    <div className="flex flex-1 flex-col gap-6 px-8 py-8 pr-10">
+    <div className="flex min-h-full flex-1 flex-col gap-6 px-8 py-8 pr-10">
       <section className="rounded-[20px] bg-surface px-8 py-7">
         <h1 className="text-[34px] font-bold leading-[1.05] text-text-primary">
           Discover Products

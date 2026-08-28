@@ -8,7 +8,7 @@ type ProductInfoPanelProps = {
 
 export function ProductInfoPanel({ product }: ProductInfoPanelProps) {
   return (
-    <section className="flex w-full max-w-166 flex-col gap-5 rounded-[20px] bg-surface p-9">
+    <section className="flex w-full min-w-0 max-w-166 flex-col gap-5 rounded-[20px] bg-surface p-9">
       <p className="text-[12px] font-semibold uppercase leading-[1.45] text-primary">
         {product.category}
       </p>
@@ -60,9 +60,9 @@ export function ProductInfoPanel({ product }: ProductInfoPanelProps) {
 
       <div className="flex flex-col gap-3">
         <h2 className="text-[18px] font-semibold leading-[1.45] text-text-primary">Reviews</h2>
-        <div className="flex flex-col gap-3">
-          {product.reviews.map((review) => (
-            <ReviewCard key={review.author} review={review} />
+        <div className="flex min-w-0 flex-col gap-3">
+          {product.reviews.map((review, index) => (
+            <ReviewCard key={`${review.author}-${index}`} review={review} />
           ))}
         </div>
       </div>

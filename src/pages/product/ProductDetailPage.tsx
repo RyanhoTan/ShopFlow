@@ -17,7 +17,7 @@ export function ProductDetailPage() {
 
   if (!Number.isFinite(productId) || productId <= 0) {
     return (
-      <main className="flex flex-1 flex-col items-center justify-center gap-4 bg-page p-12">
+      <main className="flex min-h-full flex-1 flex-col items-center justify-center gap-4 bg-page p-12">
         <p className="text-[18px] font-semibold text-text-primary">Product not found</p>
         <Link to="/product" className="text-[15px] font-medium text-primary hover:underline">
           Back to products
@@ -28,7 +28,7 @@ export function ProductDetailPage() {
 
   if (isLoading) {
     return (
-      <main className="flex flex-1 items-center justify-center bg-page p-12 text-[15px] text-text-secondary">
+      <main className="flex min-h-full flex-1 items-center justify-center bg-page p-12 text-[15px] text-text-secondary">
         Loading product...
       </main>
     )
@@ -36,7 +36,7 @@ export function ProductDetailPage() {
 
   if (error instanceof ApiError && error.status === 404) {
     return (
-      <main className="flex flex-1 flex-col items-center justify-center gap-4 bg-page p-12">
+      <main className="flex min-h-full flex-1 flex-col items-center justify-center gap-4 bg-page p-12">
         <p className="text-[18px] font-semibold text-text-primary">Product not found</p>
         <Link to="/product" className="text-[15px] font-medium text-primary hover:underline">
           Back to products
@@ -47,15 +47,15 @@ export function ProductDetailPage() {
 
   if (error || !product) {
     return (
-      <main className="flex flex-1 items-center justify-center bg-page p-12 text-[15px] text-text-secondary">
+      <main className="flex min-h-full flex-1 items-center justify-center bg-page p-12 text-[15px] text-text-secondary">
         Failed to load product.
       </main>
     )
   }
 
   return (
-    <main className="flex flex-1 justify-center bg-page px-12 py-8">
-      <div className="flex w-full max-w-336 flex-col gap-10 xl:flex-row">
+    <main className="flex min-h-full flex-1 justify-center overflow-y-auto bg-page px-12 py-8">
+      <div className="flex w-full min-w-0 max-w-336 flex-col gap-10 xl:flex-row xl:items-start">
         <ProductGallery />
         <ProductInfoPanel product={product} />
       </div>

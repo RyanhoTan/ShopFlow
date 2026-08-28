@@ -25,7 +25,7 @@ export function Sidebar() {
   }
 
   return (
-    <aside className="flex w-65 shrink-0 flex-col gap-1 bg-surface px-6 py-8">
+    <aside className="flex min-h-full w-65 shrink-0 flex-col gap-1 self-stretch overflow-y-auto bg-surface px-6 py-8">
       <p className="mb-3 px-3.5 text-[13px] font-semibold uppercase tracking-wide text-text-secondary">
         Categories
       </p>

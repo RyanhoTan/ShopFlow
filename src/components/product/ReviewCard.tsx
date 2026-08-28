@@ -23,14 +23,16 @@ function StarRating({ stars }: { stars: number }) {
 
 export function ReviewCard({ review }: ReviewCardProps) {
   return (
-    <article className="rounded-[14px] bg-input px-4 py-3.5">
-      <div className="mb-1.5 flex items-center justify-between">
-        <p className="text-[14px] font-semibold leading-[1.45] text-text-primary">
+    <article className="w-full min-w-0 rounded-[14px] bg-input px-4 py-3.5">
+      <div className="mb-1.5 flex min-w-0 items-start justify-between gap-3">
+        <p className="min-w-0 flex-1 wrap-break-word text-[14px] font-semibold leading-[1.45] text-text-primary">
           {review.author}
         </p>
-        <StarRating stars={review.stars} />
+        <div className="shrink-0">
+          <StarRating stars={review.stars} />
+        </div>
       </div>
-      <p className="text-[14px] leading-[1.45] text-text-secondary">{review.comment}</p>
+      <p className="wrap-break-word text-[14px] leading-[1.45] text-text-secondary">{review.comment}</p>
     </article>
   )
 }

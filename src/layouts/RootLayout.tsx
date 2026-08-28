@@ -3,9 +3,11 @@ import { Header } from '../components/layout/Header'
 
 export function RootLayout() {
   return (
-    <div className="flex min-h-svh flex-col bg-page font-sans text-text-primary">
+    <div className="flex h-svh flex-col overflow-hidden bg-page font-sans text-text-primary">
       <Header />
-      <Outlet />
+      <div className="flex min-h-0 flex-1 flex-col">
+        <Outlet />
+      </div>
     </div>
   )
 }
