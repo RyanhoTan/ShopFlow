@@ -1,3 +1,4 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import '@fontsource/inter-tight/400.css'
 import '@fontsource/inter-tight/500.css'
 import '@fontsource/inter-tight/600.css'
@@ -8,8 +9,19 @@ import { RouterProvider } from 'react-router-dom'
 import './index.css'
 import { router } from './router'
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60 * 1000,
+      retry: 1,
+    },
+  },
+})
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </StrictMode>,
 )

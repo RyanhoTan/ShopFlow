@@ -1,5 +1,5 @@
 import { Star } from 'lucide-react'
-import type { ProductDetail } from '../../data/mockProductDetails'
+import type { ProductDetail } from '../../types/product'
 import { ReviewCard } from './ReviewCard'
 
 type ProductInfoPanelProps = {

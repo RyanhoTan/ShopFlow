@@ -1,8 +1,8 @@
 import { Star } from 'lucide-react'
-import type { Review } from '../../data/mockProductDetails'
+import type { ProductReview } from '../../types/product'
 
 type ReviewCardProps = {
-  review: Review
+  review: ProductReview
 }
 
 function StarRating({ stars }: { stars: number }) {
