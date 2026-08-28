@@ -2,7 +2,7 @@ import { categories } from '../../data/mockProducts'
 
 export function Sidebar() {
   return (
-    <aside className="flex w-[260px] shrink-0 flex-col gap-1 bg-surface px-6 py-8">
+    <aside className="flex w-65 shrink-0 flex-col gap-1 bg-surface px-6 py-8">
       <p className="mb-3 px-3.5 text-[13px] font-semibold uppercase tracking-wide text-text-secondary">
         Categories
       </p>

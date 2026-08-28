@@ -15,8 +15,8 @@ export function Header() {
         </span>
       </div>
 
-      <label className="flex h-11 w-[520px] max-w-full items-center gap-2.5 rounded-[14px] bg-input px-4">
-        <Search className="size-[18px] shrink-0 text-text-secondary" strokeWidth={2} />
+      <label className="flex h-11 w-130 max-w-full items-center gap-2.5 rounded-[14px] bg-input px-4">
+        <Search className="size-4.5 shrink-0 text-text-secondary" strokeWidth={2} />
         <input
           type="search"
           placeholder="Search products…"
@@ -30,7 +30,7 @@ export function Header() {
           aria-label="Cart"
           className="flex size-11 items-center justify-center rounded-full bg-input text-text-primary"
         >
-          <ShoppingCart className="size-[18px]" strokeWidth={2} />
+          <ShoppingCart className="size-4.5" strokeWidth={2} />
         </button>
         <div className="size-11 shrink-0 rounded-full bg-active" />
       </div>

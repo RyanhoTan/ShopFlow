@@ -6,6 +6,22 @@ export type Product = {
   rating: string
 }
 
+export type ProductReview = {
+  author: string
+  comment: string
+  stars: number
+}
+
+export type ProductDetail = Product & {
+  originalPrice: string
+  discount: string
+  ratingValue: string
+  reviewCount: number
+  stock: number
+  description: string
+  reviews: ProductReview[]
+}
+
 export const categories = [
   'All Products',
   'Smartphones',
@@ -62,3 +78,42 @@ export const products: Product[] = [
     rating: '4.5',
   },
 ]
+
+const productDetails: Record<number, Omit<ProductDetail, keyof Product>> = {
+  1: {
+    originalPrice: '$599.00',
+    discount: '-12%',
+    ratingValue: '4.69',
+    reviewCount: 125,
+    stock: 94,
+    description:
+      'An apple mobile which is nothing like apple. Dual SIM, 12MP camera, A11 Bionic chip with 64GB storage.',
+    reviews: [
+      { author: 'John Doe', comment: 'Very satisfied!', stars: 5 },
+      { author: 'Scarlett Wright', comment: 'Great value.', stars: 4 },
+    ],
+  },
+}
+
+export function getProductDetail(id: number): ProductDetail | undefined {
+  const product = products.find((item) => item.id === id)
+  if (!product) return undefined
+
+  const detail = productDetails[id]
+
+  return {
+    ...product,
+    originalPrice: detail?.originalPrice ?? product.price,
+    discount: detail?.discount ?? '-10%',
+    ratingValue: detail?.ratingValue ?? product.rating,
+    reviewCount: detail?.reviewCount ?? 100,
+    stock: detail?.stock ?? 50,
+    description:
+      detail?.description ??
+      `Premium ${product.category} product with excellent quality and customer satisfaction.`,
+    reviews: detail?.reviews ?? [
+      { author: 'John Doe', comment: 'Very satisfied!', stars: 5 },
+      { author: 'Scarlett Wright', comment: 'Great value.', stars: 4 },
+    ],
+  }
+}
