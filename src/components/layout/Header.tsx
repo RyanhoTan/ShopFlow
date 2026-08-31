@@ -1,4 +1,5 @@
 import { ShoppingCart } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import reactLogo from '../../assets/react.svg'
 import { SearchInput } from './SearchInput'
 
@@ -20,7 +21,11 @@ export function Header() {
         >
           <ShoppingCart className="size-4.5" strokeWidth={2} />
         </button>
-        <div className="size-11 shrink-0 rounded-full bg-active" />
+        <Link
+          to="/login"
+          aria-label="Sign in"
+          className="size-11 shrink-0 rounded-full bg-active"
+        />
       </div>
     </header>
   )
