@@ -25,11 +25,13 @@ export function Header() {
           <ShoppingCart className="size-4.5" strokeWidth={2} />
         </button>
         {user ? (
-          <img
-            src={user.image}
-            alt={user.username}
-            className="size-11 shrink-0 rounded-full bg-active object-cover"
-          />
+          <Link
+            to="/profile"
+            aria-label="Account"
+            className="size-11 shrink-0 overflow-hidden rounded-full bg-active"
+          >
+            <img src={user.image} alt={user.username} className="size-full object-cover" />
+          </Link>
         ) : (
           <Link
             to="/login"

@@ -6,6 +6,7 @@ import { LoginPage } from './pages/auth/LoginPage'
 import { RegisterPage } from './pages/auth/RegisterPage'
 import { ProductDetailPage } from './pages/product/ProductDetailPage'
 import { ProductsListPage } from './pages/product/ProductsListPage'
+import { ProfilePage } from './pages/profile/ProfilePage'
 import { SearchResultsPage } from './pages/product/SearchResultsPage'
 
 export const router = createBrowserRouter([
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
       {
         path: 'product/:id',
         element: <ProductDetailPage />,
+      },
+      {
+        path: 'profile',
+        element: <ProfilePage />,
       },
     ],
   },
