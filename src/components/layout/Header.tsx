@@ -1,9 +1,12 @@
 import { ShoppingCart } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../../auth/AuthProvider'
 import reactLogo from '../../assets/react.svg'
 import { SearchInput } from './SearchInput'
 
 export function Header() {
+  const { user } = useAuth()
+
   return (
     <header className="flex h-18 shrink-0 items-center justify-between border-b border-border bg-surface px-10 py-3">
       <div className="flex items-center gap-2.5">
@@ -21,11 +24,19 @@ export function Header() {
         >
           <ShoppingCart className="size-4.5" strokeWidth={2} />
         </button>
-        <Link
-          to="/login"
-          aria-label="Sign in"
-          className="size-11 shrink-0 rounded-full bg-active"
-        />
+        {user ? (
+          <img
+            src={user.image}
+            alt={user.username}
+            className="size-11 shrink-0 rounded-full bg-active object-cover"
+          />
+        ) : (
+          <Link
+            to="/login"
+            aria-label="Sign in"
+            className="size-11 shrink-0 rounded-full bg-active"
+          />
+        )}
       </div>
     </header>
   )
