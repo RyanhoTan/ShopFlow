@@ -60,9 +60,9 @@ export function SearchResultsPage() {
           <p className="text-[14px] leading-[1.45] text-text-secondary">
             Showing results for {query}
           </p>
-          <button type="button" className="text-[15px] font-semibold leading-[1.45] text-primary">
+          {/* <button type="button" className="text-[15px] font-semibold leading-[1.45] text-primary">
             Sort: Price ↑
-          </button>
+          </button> */}
         </div>
       </section>
 
