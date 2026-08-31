@@ -87,11 +87,15 @@ type GetProductsOptions = {
 export function getProducts({ category = 'all' }: GetProductsOptions = {}): Promise<ProductsResult> {
   const query = 'sortBy=title&order=asc&limit=100'
   const path =
-    category === 'all'
-      ? `/products?${query}`
-      : `/products/category/${category}?${query}`
+    category === 'all' ? `/products?${query}` : `/products/category/${category}?${query}`
 
   return apiClient<ProductsResponse>(path).then(mapProductsResponse)
+}
+
+export function searchProducts(query: string): Promise<ProductsResult> {
+  return apiClient<ProductsResponse>(
+    `/products/search?q=${encodeURIComponent(query)}`,
+  ).then(mapProductsResponse)
 }
 
 export function getProduct(id: number): Promise<ProductDetail> {

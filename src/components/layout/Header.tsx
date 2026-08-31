@@ -1,5 +1,6 @@
-import { Search, ShoppingCart } from 'lucide-react'
+import { ShoppingCart } from 'lucide-react'
 import reactLogo from '../../assets/react.svg'
+import { SearchInput } from './SearchInput'
 
 export function Header() {
   return (
@@ -9,14 +10,7 @@ export function Header() {
         <span className="text-[22px] font-bold leading-[1.45] text-text-primary">ShopFlow</span>
       </div>
 
-      <label className="flex h-11 w-130 max-w-full items-center gap-2.5 rounded-[14px] bg-input px-4">
-        <Search className="size-4.5 shrink-0 text-text-secondary" strokeWidth={2} />
-        <input
-          type="search"
-          placeholder="Search products…"
-          className="w-full bg-transparent text-[15px] leading-[1.45] text-text-primary outline-none placeholder:text-text-secondary"
-        />
-      </label>
+      <SearchInput />
 
       <div className="flex items-center gap-3">
         <button
