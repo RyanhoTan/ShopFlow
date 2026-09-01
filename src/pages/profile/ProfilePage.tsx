@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { Navigate } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { getUserOrderStats, getUserProfile } from '../../api/profile'
 import { useAuth } from '../../auth/AuthProvider'
 import { ProfileMetric, ProfileSection, type ProfileField } from '../../components/profile/ProfileSection'
@@ -48,29 +48,79 @@ function displayUniversity(university: string): string {
 function buildProfileSections(profile: UserProfile): ProfileField[][] {
   return [
     [
-      { key: 'email', label: 'Email', value: profile.email },
-      { key: 'phone', label: 'Phone', value: profile.phone },
+      { key: 'email', label: 'Email', value: profile.email, editTo: '/profile/edit/email' },
+      { key: 'phone', label: 'Phone', value: profile.phone, editTo: '/profile/edit/phone' },
     ],
     [
-      { key: 'birthday', label: 'Birthday', value: formatBirthday(profile.birthDate) },
+      {
+        key: 'birthday',
+        label: 'Birthday',
+        value: formatBirthday(profile.birthDate),
+        editTo: '/profile/edit/birthday',
+      },
       { key: 'age', label: 'Age', value: String(profile.age) },
-      { key: 'gender', label: 'Gender', value: formatGender(profile.gender) },
+      {
+        key: 'gender',
+        label: 'Gender',
+        value: formatGender(profile.gender),
+        editTo: '/profile/edit/gender',
+      },
     ],
     [
-      { key: 'street', label: 'Street', value: profile.address.address },
-      { key: 'city', label: 'City', value: formatCityLine(profile) },
-      { key: 'country', label: 'Country', value: profile.address.country },
+      {
+        key: 'street',
+        label: 'Street',
+        value: profile.address.address,
+        editTo: '/profile/edit/street',
+      },
+      { key: 'city', label: 'City', value: formatCityLine(profile), editTo: '/profile/edit/city' },
+      {
+        key: 'country',
+        label: 'Country',
+        value: profile.address.country,
+        editTo: '/profile/edit/country',
+      },
     ],
     [
-      { key: 'title', label: 'Title', value: profile.company.title },
-      { key: 'company', label: 'Company', value: profile.company.name },
-      { key: 'department', label: 'Department', value: profile.company.department },
-      { key: 'university', label: 'University', value: displayUniversity(profile.university) },
+      {
+        key: 'title',
+        label: 'Title',
+        value: profile.company.title,
+        editTo: '/profile/edit/title',
+      },
+      {
+        key: 'company',
+        label: 'Company',
+        value: profile.company.name,
+        editTo: '/profile/edit/company',
+      },
+      {
+        key: 'department',
+        label: 'Department',
+        value: profile.company.department,
+        editTo: '/profile/edit/department',
+      },
+      {
+        key: 'university',
+        label: 'University',
+        value: displayUniversity(profile.university),
+        editTo: '/profile/edit/university',
+      },
     ],
     [
       { key: 'card', label: 'Card', value: formatCard(profile) },
-      { key: 'expires', label: 'Expires', value: profile.bank.cardExpire },
-      { key: 'currency', label: 'Currency', value: profile.bank.currency },
+      {
+        key: 'expires',
+        label: 'Expires',
+        value: profile.bank.cardExpire,
+        editTo: '/profile/edit/expires',
+      },
+      {
+        key: 'currency',
+        label: 'Currency',
+        value: profile.bank.currency,
+        editTo: '/profile/edit/currency',
+      },
     ],
   ]
 }
@@ -172,12 +222,12 @@ export function ProfilePage() {
               </span>
             </div>
           </div>
-          {/* <button
-            type="button"
+          <Link
+            to="/profile/edit"
             className="flex h-10 shrink-0 items-center justify-center rounded-[14px] bg-input px-4 text-[15px] font-semibold leading-[1.45] text-text-primary"
           >
             Edit
-          </button> */}
+          </Link>
         </section>
 
         <section className="flex flex-col gap-2">

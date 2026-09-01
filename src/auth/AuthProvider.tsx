@@ -17,6 +17,7 @@ type AuthContextValue = {
   isInitializing: boolean
   login: (credentials: LoginCredentials) => Promise<void>
   logout: () => void
+  refreshUser: () => void
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null)
@@ -89,14 +90,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(null)
   }, [])
 
+  const refreshUser = useCallback(() => {
+    const session = getStoredSession()
+    setUser(session ? toAuthUser(session) : null)
+  }, [])
+
   const value = useMemo(
     () => ({
       user,
       isInitializing,
       login,
       logout,
+      refreshUser,
     }),
-    [user, isInitializing, login, logout],
+    [user, isInitializing, login, logout, refreshUser],
   )
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

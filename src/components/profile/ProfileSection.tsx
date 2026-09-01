@@ -5,6 +5,7 @@ export type ProfileField = {
   key: string
   label: string
   value: string
+  editTo?: string
 }
 
 type ProfileSectionProps = {
@@ -21,7 +22,7 @@ export function ProfileSection({ title, fields }: ProfileSectionProps) {
       <div className="overflow-hidden rounded-[20px] bg-surface">
         {fields.map((field, index) => (
           <div key={field.key}>
-            <ProfileInfoRow label={field.label} value={field.value} />
+            <ProfileInfoRow label={field.label} value={field.value} to={field.editTo} />
             {index < fields.length - 1 && <div className="h-px bg-border" />}
           </div>
         ))}

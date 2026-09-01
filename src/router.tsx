@@ -7,6 +7,8 @@ import { RegisterPage } from './pages/auth/RegisterPage'
 import { ProductDetailPage } from './pages/product/ProductDetailPage'
 import { ProductsListPage } from './pages/product/ProductsListPage'
 import { ProfilePage } from './pages/profile/ProfilePage'
+import { EditFieldPage } from './pages/profile/EditFieldPage'
+import { EditProfilePage } from './pages/profile/EditProfilePage'
 import { SearchResultsPage } from './pages/product/SearchResultsPage'
 
 export const router = createBrowserRouter([
@@ -51,6 +53,14 @@ export const router = createBrowserRouter([
       {
         path: 'profile',
         element: <ProfilePage />,
+      },
+      {
+        path: 'profile/edit',
+        element: <EditProfilePage />,
+      },
+      {
+        path: 'profile/edit/:fieldKey',
+        element: <EditFieldPage />,
       },
     ],
   },
